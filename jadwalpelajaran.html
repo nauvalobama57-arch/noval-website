@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelajaran - Noval</title>
+
+    <style>
+        /* --- CSS GABUNGAN UNTUK MENU BAR TETAP (FIXED) DAN TEMA DARK MODE --- */
+
+        /* Aturan Dasar dan Dark Mode */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Latar belakang utama */
+            color: #EAEAEA; /* Warna teks */
+            margin: 0;
+            line-height: 1.6;
+            padding-top: 70px; /* Ruang untuk header tetap */
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        a {
+            color: #5dade2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #85c1e9;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: #154360;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(85, 209, 230, 0.2);
+            border-radius: 4px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #1E1E1E;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.7);
+            z-index: 10;
+            top: 100%;
+            right: 0;
+            padding: 5px 0;
+            border-radius: 4px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #EAEAEA;
+            padding: 10px 16px;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #5dade2;
+            color: #121212;
+        }
+
+        /* Konten Jadwal Pelajaran */
+        .jadwal-content {
+            width: 85%;
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: #1E1E1E;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #5dade2;
+            text-align: center;
+            border-bottom: 2px solid #5dade2;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #85c1e9;
+            margin-top: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-content">
+            <div class="logo">NOVAL</div>
+            <nav>
+                <ul>
+                    <li><a href="noval personal website.html">Beranda</a></li>
+                    <li><a href="jadwalpelajaran.html">Jadwal Pelajaran</a></li>
+                    <li><a href="terakhir kali.html">Syair Lagu</a></li>
+                    <li class="dropdown">
+                        <a href="#">Menghitung ▼</a>
+                        <div class="dropdown-menu">
+                            <a href="luas panjang.html">Luas Persegi</a>
+                            <a href="volume kotak.html">Volume Kotak</a>
+                        </div>
+                    </li>
+                    <li><a href="about me3.html">Tentang Saya</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="jadwal-content">
+        <h1>Jadwal Pelajaran Kelas XII DKV 1</h1>
+
+        <h2>Senin</h2>
+        <ul>
+            <li>Konsentrasi Kejuruan 3</li>
+            <li>Bahasa Korea</li>
+            <li>Konsentrasi Kejuruan 5</li>
+        </ul>
+
+        <h2>Selasa</h2>
+        <ul>
+            <li>Konsentrasi Kejuruan 5</li>
+            <li>PAI</li>
+            <li>Konsentrasi Kejuruan 3</li>
+        </ul>
+
+        <h2>Rabu</h2>
+        <ul>
+            <li>Konsentrasi Kejuruan 4</li>
+            <li>Kewirausahaan</li>
+            <li>Matematika</li>
+        </ul>
+
+        <h2>Kamis</h2>
+        <ul>
+            <li>Mata Pelajaran Pilihan 12</li>
+            <li>Konsentrasi Kejuruan 4</li>
+            <li>Pendidikan Pancasila</li>
+            <li>Bahasa Inggris</li>
+        </ul>
+
+        <h2>Jumat</h2>
+        <ul>
+            <li>Bahasa Indonesia</li>
+            <li>Bahasa Inggris</li>
+        </ul>
+    </div>
+</body>
+</html>

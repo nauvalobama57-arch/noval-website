@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hitung Luas Persegi Panjang - Biru Tua & Hitam</title>
+
+  <!-- Bootstrap (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --card:#003366;
+      --muted-card:#1E1E1E;
+      --text:#EAEAEA;
+      --accent:#5dade2;
+      --cyan:#4dd0e1;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      background-color:var(--bg);
+      color:var(--text);
+    }
+
+    /* HEADER */
+    header{
+      background-color:#154360;
+      padding:10px 0;
+      box-shadow:0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .container.nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:1rem;
+    }
+
+    .logo{
+      font-size:1.6rem;
+      font-weight:700;
+      color:#fff;
+    }
+
+    nav ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+    }
+
+    nav a{
+      color:#fff;
+      padding:8px 12px;
+      text-decoration:none;
+      border-radius:6px;
+    }
+
+    nav a:hover{
+      background-color:rgba(85,209,230,0.12);
+    }
+
+    .dropdown{ position:relative; }
+    .dropdown-menu{
+      display:none;
+      position:absolute;
+      right:0;
+      top:100%;
+      background:#1E1E1E;
+      padding:6px 0;
+      border-radius:6px;
+      min-width:160px;
+      box-shadow:0 8px 16px rgba(0,0,0,0.7);
+      z-index:2000;
+    }
+    .dropdown:hover .dropdown-menu{ display:block; }
+    .dropdown-menu a{ display:block; padding:8px 14px; color:var(--text); }
+    .dropdown-menu a:hover{ background:var(--accent); color:#121212; }
+
+    /* MAIN agar kotak di tengah layar */
+    main{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:calc(100vh - 70px); /* kurangi tinggi header */
+      padding:20px;
+    }
+
+    /* CARD */
+    .card.form-card{
+      background-color:var(--card);
+      color:#fff;
+      border:1px solid #001a33;
+      width:100%;
+      max-width:400px;
+    }
+
+    .form-label,.card-title{color:#fff !important;}
+
+    .form-control{
+      background-color:#f0f0f0;
+      color:#003366;
+      border:1px solid #ced4da;
+    }
+
+    .btn-primary{
+      background-color:#212529;
+      border-color:#343a40;
+      transition:background-color .2s;
+      color:#fff;
+    }
+    .btn-primary:hover{
+      background-color:#343a40;
+      border-color:#212529;
+    }
+
+    #hasil{
+      color:var(--cyan);
+    }
+
+    @media(max-width:768px){
+      .container.nav-content{flex-direction:column;align-items:flex-start;gap:.5rem;padding:0 1rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-content">
+      <div class="logo">NOVAL</div>
+      <nav>
+        <ul>
+          <li><a href="noval personal website.html">Beranda</a></li>
+          <li><a href="jadwalpelajaran.html">Jadwal Pelajaran</a></li>
+          <li><a href="terakhir kali.html">Syair Lagu</a></li>
+          <li class="dropdown">
+            <a href="#">Menghitung ▼</a>
+            <div class="dropdown-menu">
+              <a href="luas panjang.html">Luas Persegi</a>
+              <a href="volume kotak.html">Volume Kotak</a>
+            </div>
+          </li>
+          <li><a href="about me3.html">Tentang Saya</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="card form-card shadow-lg rounded-4">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-3">Hitung Luas Persegi Panjang</h3>
+
+        <form id="luasForm" novalidate>
+          <div class="mb-3">
+            <label for="panjang" class="form-label">Panjang (cm)</label>
+            <input type="number" class="form-control" id="panjang" placeholder="Masukkan panjang" min="0" step="any" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="lebar" class="form-label">Lebar (cm)</label>
+            <input type="number" class="form-control" id="lebar" placeholder="Masukkan lebar" min="0" step="any" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Hitung</button>
+        </form>
+
+        <div class="mt-4 text-center">
+          <h5 class="mb-1">Hasil Luas:</h5>
+          <p id="hasil" class="fw-bold fs-4">-</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function(){
+      const form = document.getElementById('luasForm');
+      const hasilEl = document.getElementById('hasil');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const p = parseFloat(document.getElementById('panjang').value);
+        const l = parseFloat(document.getElementById('lebar').value);
+
+        if (Number.isFinite(p) && Number.isFinite(l) && p > 0 && l > 0){
+          const luas = p * l;
+          hasilEl.textContent = (Math.round(luas * 100) / 100).toLocaleString('id-ID') + ' cm²';
+        } else {
+          hasilEl.textContent = 'Masukkan angka yang valid (lebih dari 0).';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

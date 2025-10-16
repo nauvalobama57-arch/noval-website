@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noval personal website</title>
+    <link href="https://www.novalpersonalwebsite.com" rel="stylesheet">
+    
+    <style>
+        /* CSS Gabungan */
+        
+        /* Aturan Dasar dan Dark Mode */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Warna latar belakang utama: Hitam/Abu-abu Gelap */
+            color: #EAEAEA; /* Warna teks utama: Putih/Abu-abu Muda */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: #5dade2; /* Warna link: Biru Cerah */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #85c1e9;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: #154360; /* Warna header: Biru Tua */
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white; /* Teks navigasi berwarna putih */
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(85, 209, 230, 0.2); /* Hover navigasi: Biru Cerah */
+            border-radius: 4px;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #1E1E1E; /* Latar belakang dropdown: Warna kartu abu-abu gelap */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+            z-index: 10; 
+            top: 100%; 
+            right: 0; 
+            padding: 5px 0; 
+            border-radius: 4px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #EAEAEA; /* Teks dropdown putih */
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #5dade2; /* Hover dropdown: Biru Cerah */
+            color: #121212; /* Teks hitam saat di-hover biru */
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #154360; /* Latar belakang hero: Biru Tua */
+            text-align: center;
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden; 
+            border-bottom-left-radius: 8px; 
+            border-bottom-right-radius: 8px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Lingkaran Dekoratif */
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(85, 173, 226, 0.15); 
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .hero::before { 
+            width: 200px;
+            height: 200px;
+            top: 20px;
+            left: 5%;
+        }
+        .hero::after { 
+            width: 150px;
+            height: 150px;
+            top: 50px;
+            right: 15%;
+        }
+        
+        /* Blog Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .blog-header h2 {
+            font-size: 2em;
+            display: inline-block;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #5dade2; /* Garis bawah biru */
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* Style untuk Link yang membungkus Card */
+        .card-link {
+            text-decoration: none; /* Hilangkan garis bawah pada link kartu */
+            display: block; /* Agar link memenuhi grid item */
+        }
+
+        .card {
+            background-color: #1E1E1E; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%; /* Penting agar semua kartu tingginya sama */
+        }
+
+        /* Efek hover pada kartu */
+        .card-link:hover .card {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .card h3 {
+            color: #5dade2; /* Judul kartu: Biru Cerah */
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        /* Pastikan paragraf dalam kartu tetap berwarna terang */
+        .card p {
+            color: #EAEAEA; 
+        }
+
+        /* Placeholder Gambar di Kartu */
+        .card-image-placeholder {
+            width: 100%;
+            height: 150px;
+            border-radius: 4px;
+            background-color: #154360; 
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Lingkaran di dalam placeholder gambar */
+        .card-image-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(85, 209, 230, 0.3); 
+            top: 25px;
+            left: 25px;
+        }
+        .card-image-placeholder::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(85, 209, 230, 0.2);
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Responsiveness dasar */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="web.html">Beranda</a></li>
+                    <li><a href="jadwalpelajaran.html">Jadwal Pelajaran</a></li>
+                    <li><a href="terakhir kali.html">Syair Lagu</a></li>
+                    <li class="dropdown">
+                        <a href="#">Menghitung ▼</a>
+                        <div class="dropdown-menu">
+                            <a href="#">Luas Persegi</a>
+                            <a href="#">Volume Kotak</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutme.html">Tentang Saya</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Noval personal website</h1>
+            <p>Selamat datang di website personal saya</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="blog-header">
+            <h2>Blog Coding</h2>
+        </div>
+        
+        <div class="card-container">
+            <a href="aboutme.html" class="card-link">
+                <div class="card">
+                    <div class="card-image-placeholder"></div>
+                    <h3>tentang saya</h3>
+                    
+                </div>
+            </a>
+            
+            <a href="jadwalpelajaran.html" class="card-link">
+                <div class="card">
+                    <div class="card-image-placeholder"></div>
+                    <h3>jadwal pelajaran</h3>
+                    
+                </div>
+            </a>
+
+            <a href="terakhir kali.html" class="card-link">
+                <div class="card">
+                    <div class="card-image-placeholder"></div>
+                    <h3>syair lagu</h3>
+                   </div>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>
